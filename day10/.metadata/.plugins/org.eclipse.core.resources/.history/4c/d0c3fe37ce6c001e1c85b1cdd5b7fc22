@@ -1,0 +1,256 @@
+/*1. Copy Person class and inherited classes (Employee, Salesman, Manager, SalesManager) from previous assignment/classwork. Implement generic class
+Box so that it can store any Person in it. How to get total salary of the Employee in Box?*/
+package day10;
+//
+//import java.util.Scanner;
+//
+//public class demo1 {
+//
+//	public static void main(String[] args) {
+//
+//
+//		
+//		
+//		
+//		class Employee
+//		{
+//		    private int id;
+//		    private float sal;
+//
+//		    public Employee()
+//		    {
+//		        this.id=0;
+//		        this.sal=0;
+//
+//		        System.out.print("Inside non parameterized constructor of base class");
+//		    }
+//
+//		    public Employee(int a, float b)
+//		    {
+//		        this.id=a;
+//		        this.sal=b;
+//
+//		        System.out.print("Inside  parameterized constructor of base class");
+//		    }
+//
+//		    int getId()
+//		    {
+//		        return this.id;
+//		    }
+//
+//		    void setId(int a)
+//		    {
+//		        this.id=a;
+//		    }
+//
+//		    float getSal()
+//		    {
+//		        return this.sal;
+//		    }
+//
+//		    void setSal(float a)
+//		    {
+//		        this.sal=a;
+//		    }
+//
+//		    void display()
+//		    {
+//		    	System.out.println("The id is:"+this.id+"sal is :"+this.sal);
+//		        
+//		    }
+//
+//		    void accept()
+//		    {  
+//		    	Scanner sc = new Scanner(System.in);
+//		    	System.out.print("Enter the value of next int");
+//		         id = sc.nextInt();
+//		        System.out.print("Enter the value of next int");
+//		         sal = sc.nextFloat();
+//		      
+//		    }
+//
+//		};
+//
+//		class Manager 
+//		{
+//		    private float bonus;
+//
+//		    public Manager()
+//		    {
+//		        this.bonus=0;
+//		       
+//		       this.setId(1);
+//		      // Employee::setSal(1000);
+//		       System.out.print("inside non parameterized constructor of derived class manager");
+//		        
+//		        
+//		    }
+//
+//		    private void setId(int i) {
+//				this.setId(i);
+//				
+//			}
+//
+//			private void setSal(int i) {
+//				    this.setSal(i);
+//				
+//			}
+//
+//			Manager(int a, float b, float c) 
+//		    {
+//				System.out.print("inside parameterized constructor of derived class manager");
+//		        this. bonus=b;
+//		       
+//		    }
+//
+//		    float getBonus()
+//		    {
+//		        return bonus;
+//		    }
+//
+//		    void setBonus(float bonus)
+//		    {
+////		    	Manager m1(1,5000,100);
+//		          //display();
+//		        this.bonus=bonus;
+//		    }
+//
+//		    void display()
+//		    {
+////		        super();
+//		    	System.out.print("Enter the value of next bonus :");
+//		        System.out.println("The id is:"+this.bonus);
+//		      
+//		       
+//		      
+//		    }
+//
+//		    void accept()
+//		    {  
+////		    	Employee::accept();
+//		    	Scanner sc = new Scanner(System.in);
+//		    	System.out.print("Enter the value of  bonus :");
+//		        bonus = sc.nextFloat(); 
+//		       
+//
+//		    }
+//
+//		protected:
+//
+//		    void display_manager()
+//		    {
+//		        System.out.println("Bonus :");
+//		    }
+//
+//		    void accept_manager()
+//		    {
+//		        System.out.print("Enter the bonus value : ");;
+//		        
+//		    }
+//
+//		};
+//
+//		class Salesman : public virtual Employee
+//		{
+//		private:
+//		   
+//		    float comm;
+//
+//		public:
+//		    
+//		    Salesman()
+//		    {
+//		        cout<<"inside non parameterized constructor of Salesman"<<endl;
+//		        this->comm=0;
+//		    }
+//
+//		    Salesman(int a,float b, float c)
+//		    {
+//		        cout<<"inside parameterized constructor of middle class2"<<endl;
+//		        Employee::setId(a);
+//		        Employee::setSal(b);
+//		        this->comm=c;
+//		    }
+//
+//		    float getComm()
+//		    {
+//		      return this->comm;
+//		    }
+//
+//		    void setComm(float a)
+//		    {
+//		        this->comm=a;
+//		    }
+//
+//		    void display()
+//		    {
+//		        Employee::display();
+//		        cout<<"the comm is= "<<this->comm<<endl;
+//		    }
+//
+//		    void accept()
+//		    {
+//		        Employee::accept();
+//		        cout<<"enter the commission"<<endl;
+//		        cin>>this->comm;
+//		    }
+//
+//		protected:
+//		    void display_salesman()
+//		    {
+//		        cout<<"the comm is= "<<comm<<endl;
+//		    }
+//
+//		    void accept_salesman()
+//		    {
+//		        cout<<"Commission= "<<endl;
+//		        cin>>this->comm;
+//
+//		    }
+//
+//		};
+//
+//		class Sales_manager : public Manager ,public Salesman
+//		{
+//		    private: 
+//
+//
+//		    public:
+//
+//		    Sales_manager()
+//		    {
+//		        cout<<"inside non parameterized constructor of last class"<<endl;
+//		    }
+//
+//		    Sales_manager(int a,float b,float c,float d)
+//		    {
+//		        cout<<"inside parameterized constructor of last class"<<endl;
+//		        Employee::setId(a);
+//		        Employee::setSal(b);
+//		        Manager::setBonus(c);
+//		        Salesman::setComm(d);
+//		        
+//		    }
+//
+//		    void display()
+//		    {
+//		        Employee::display();
+//		        Manager::display_manager();
+//		        Salesman::display_salesman();
+//
+//		    }
+//
+//		    void accept()
+//		    {
+//		        Employee::accept();
+//		        Manager::accept_manager();
+//		        Salesman::accept_salesman();
+//
+//		    }
+//
+//		};
+//
+//
+//	}
+//
+//}

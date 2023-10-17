@@ -1,0 +1,35 @@
+package day10;
+
+
+public class Demo02Main {
+	
+	public static<T> void swap(T a,T b)
+	{
+		T t = a;
+		a = b;
+		b= t;
+		System.out.println("In swap : a ="+a+"\n b:"+b);
+	}
+	
+	public static void main(String[] args)
+	{
+		Integer i1=10,i2=20;
+		System.out.println("Before swap() : i1="+i1+"i2 ="+i2);
+		Demo02Main.swap(i1, i2);
+		
+		
+		Double d1=1.1,d2=2.2;
+		System.out.println("Before swap() : d1="+d1+"d2 ="+d2);
+		Demo02Main.swap(d1, d2);
+   
+		
+		System.out.println("Before swap() : i1="+i1+"d2 ="+d2);
+		Demo02Main.<Object>swap(i1, d2);
+	
+
+		Integer i = 1;
+		String s = "One";
+		System.out.println("Before swap(): i = " + i + ", s = " + s);
+		Demo02Main.<Object>swap(i, s); // T=Object --> Demo02Main.swap(Object, Object);
+	}
+}
