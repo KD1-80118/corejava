@@ -1,0 +1,7 @@
+/*Create a list of strings. Find the string with highest length using Collections.max().*/
+
+package assignment3;
+
+public class Q3Assignment {
+
+}
